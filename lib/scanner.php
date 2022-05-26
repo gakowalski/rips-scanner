@@ -1579,7 +1579,7 @@ class Scanner
 					*************************/
 					if(isset($this->scan_functions[$token_value]) && $GLOBALS['verbosity'] != 5
 					// not a function of a class or a function of a vulnerable class
-					&& (empty($class) || (($this->in_function && is_array($this->function_obj->parameters) && in_array($classvar, $this->function_obj->parameters)) || @in_array($token_value, $this->vuln_classes[$class]))) )
+					&& (empty($class) || (($this->in_function && is_array($this->function_obj->parameters) && in_array($classvar, $this->function_obj->parameters)) || (is_array($this->vuln_classes[$class]) && @in_array($token_value, $this->vuln_classes[$class])))) )
 					{
 						if(!$this->already_scanned($i))
 						{
