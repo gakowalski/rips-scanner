@@ -313,7 +313,7 @@ class Tokenizer
 					$this->wrapbraces($i+2, $f-1, $i+$f+1);
 				}
 			// lowercase all function names because PHP doesn't care
-				else if( $this->tokens[$i][0] === T_FUNCTION )
+				else if( $this->tokens[$i][0] === T_FUNCTION && $this->tokens[$i+1] !== '(' )
 				{
 					$this->tokens[$i+1][1] = strtolower($this->tokens[$i+1][1]);
 				}
